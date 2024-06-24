@@ -14,6 +14,10 @@
 
 int main()
 {
-	ft_printf("Hello Word\n");
+	t_data	*data;
+
+	data = new_data (600, 600, "fanorona");
+	mlx_put_image_to_window (data->win->mlx_ptr, data->win->win_ptr, data->img->red, 10, 10);
+	mlx_loop (data->win->mlx_ptr);
 	return (0);
 }

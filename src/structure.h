@@ -15,6 +15,8 @@
 # include <stdlib.h>
 # include "ft_printf.h"
 # include "get_next_line.h"
+# include "libft.h"
+# include <fcntl.h>
 # include <stdio.h>
 # define BLOC_WIDTH_3 100
 # define BLOC_HEIGHT_3 100

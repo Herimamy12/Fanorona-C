@@ -19,15 +19,19 @@ t_map	*new_map(int w, int h)
 	int 	fd;
 	t_map	*map;
 
+	map = (t_map *)malloc(sizeof(t_map));
+	if (!map)
+		return (NULL);
 	fd = open ("map3", O_RDONLY);
 	if (fd < 0)
 		return (NULL);
+	map->map = NULL;
 	map->map = get_char_map (fd);
 	map->w = w;
 	map->h = h;
+	close (fd);
 	return (map);
 }
-
 
 char	**get_char_map(int fd)
 {
@@ -52,4 +56,15 @@ char	**get_char_map(int fd)
 	free (tmp);
 	free (line);
 	return (charmap);
+}
+
+void	destroy_map(t_map *map)
+{
+	int	i;
+
+	i = 0;
+	while (i < map->h)
+		free (map->map[i++]);
+	free (map->map);
+	free (map);
 }

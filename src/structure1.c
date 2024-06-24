@@ -22,9 +22,9 @@ t_image	*new_image(t_window *win)
 	if (!img)
 		return (NULL);
 	img->win = win;
-	img->red = mlx_xpm_file_to_image(win->mlx_ptr, "./image/red.xpm", &x, &y);
-	img->black = mlx_xpm_file_to_image(win->mlx_ptr, "./image/black.xpm", &x, &y);
-	img->vide = mlx_xpm_file_to_image(win->mlx_ptr, "./image/vide.xpm", &x, &y);
+	img->red = mlx_xpm_file_to_image(win->mlx_ptr, "./img/white.xpm", &x, &y);
+	img->black = mlx_xpm_file_to_image(win->mlx_ptr, "./img/black.xpm", &x, &y);
+	img->vide = mlx_xpm_file_to_image(win->mlx_ptr, "./img/vide.xpm", &x, &y);
 	return (img);
 }
 
