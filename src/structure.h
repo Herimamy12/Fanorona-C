@@ -57,12 +57,20 @@ typedef struct s_mouse
 	int y;
 }	t_mouse;
 
+typedef struct s_player
+{
+	int state;
+	int	x;
+	int	y;
+}	t_player;
+
 typedef struct s_data
 {
 	t_window	*win;
 	t_map		*map;
 	t_image		*img;
 	t_mouse		mouse;
+	t_player	player;
 	char		**state;
 }	t_data;
 
@@ -70,6 +78,7 @@ t_map	*new_map(int w, int h);
 t_window	*new_window(int w, int h, char *title);
 t_image	*new_image(t_window *win);
 t_data	*new_data(int w, int h, char *title);
+t_player	new_player(void);
 void	destroy_map(t_map *map);
 void	destroy_window(t_window *win);
 void	destroy_image(t_image *img);
@@ -78,29 +87,7 @@ void	fill_window(t_data *data);
 int 	handle_mouse(int button, int x, int y, t_data *data);
 char	**init_state(t_data *data);
 int check_state(char **s);
+int	verif_win(t_data *data);
+void	ft_print_map(char **map);
+
 #endif
-
-
-/*######################################*/
-/*######################################*/
-/*######################################*/
-/*######################################*/
-/*######################################*/
-/*######################################*/
-
-/*
-typedef struct s_case
-{
-	int x;
-	int y;
-	int num;
-	int item;
-}	t_case;
-
-typedef struct s_map
-{
-	t_case	*m;
-	int		w;
-	int		h;
-	char	**map;
-}*/

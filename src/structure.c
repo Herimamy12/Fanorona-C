@@ -61,6 +61,9 @@ t_data	*new_data(int w, int h, char *title)
 
 void	destroy_data(t_data *data)
 {
+	for (int i = 0; i < data->map->h; i++)
+		free(data->state[i]);
+	free(data->state);
 	destroy_map(data->map);
 	destroy_image(data->img);
 	destroy_window(data->win);

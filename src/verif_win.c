@@ -20,7 +20,7 @@ int	verif_horizontal(char **map, char c)
 
 	i = 0;
 	j = 0;
-	count = 1;
+	count = 0;
 	while (map[j] != NULL)
 	{
 		i = 0;
@@ -46,11 +46,11 @@ int	verif_vertical(char **map, char c)
 
 	i = 0;
 	j = 0;
-	count = 1;
-	while (map[i] != NULL)
+	count = 0;
+	while (map[0][i] != '\0')
 	{
 		j = 0;
-		while (map[j][i] != NULL)
+		while (map[j] != NULL)
 		{
 			if (map[j][i] == c)
 				count += 1;
@@ -72,10 +72,10 @@ int	verif_diagonal(t_map *map, char c)
 
 	i = 0;
 	j = 0;
-	count = 1;
-	if (map->map[0][0] == c)
+	count = 0;
+	if (map->map[0][0] == c && c != '0')
 	{
-		while (map[j] != NULL)
+		while (map->map[j] != NULL)
 		{
 			if (map->map[j][i] == c)
 				count += 1;
@@ -83,10 +83,10 @@ int	verif_diagonal(t_map *map, char c)
 			i++;
 		}
 	}
-	else if (map->map[0][map->w - 1] == c)
+	else if (map->map[0][map->w - 1] == c && c != '0')
 	{
 		i = map->w - 1;
-		while (map[j] != NULL)
+		while (map->map[j] != NULL)
 		{
 			if (map->map[j][i] == c)
 				count += 1;
@@ -100,6 +100,15 @@ int	verif_diagonal(t_map *map, char c)
 }
 
 
+void	ft_print_map(char **map)
+{
+	int	j;
+
+	j = 0;
+	while (map[j] != NULL)
+		ft_printf("%s\n", map[j++]);
+}
+
 int	verif_player(t_map *map, char c)
 {
 	if (verif_horizontal(map->map, c) == 1)
@@ -112,6 +121,7 @@ int	verif_player(t_map *map, char c)
 }
 int	verif_win(t_data *data)
 {	
+	ft_print_map(data->map->map);
 	if (verif_player(data->map, '1') == 1)
 	{
 		ft_printf("Player 1 won this game.");

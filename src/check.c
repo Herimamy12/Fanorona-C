@@ -36,5 +36,5 @@ int check_state(char **s)
 
 	c1 = s[0][0] && s[0][1] && s[0][2];
 	c2 = s[2][0] && s[2][1] && s[2][2];
-	return (c1 && c2);
+	return (c1 || c2);
 }
