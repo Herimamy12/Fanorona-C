@@ -27,7 +27,7 @@ t_window	*new_window(int w, int h, char *title)
 	return (win);
 }
 
-t_window	*destroy_window(t_window *win)
+void	destroy_window(t_window *win)
 {
 	mlx_destroy_window(win->mlx_ptr, win->win_ptr);
 	mlx_destroy_display(win->mlx_ptr);
@@ -43,14 +43,14 @@ t_data	*new_data(int w, int h, char *title)
 	if (!data)
 		return (NULL);
 	data->win = new_window(w, h, title);
-	data->map = new_map(3, 3);
+	// data->map = new_map(3, 3);
 	data->img = new_image(data->win);
 	return (data);
 }
 
 void	destroy_data(t_data *data)
 {
-	destroy_map(data->map);
+	// destroy_map(data->map);
 	destroy_image(data->img);
 	destroy_window(data->win);
 	free(data);

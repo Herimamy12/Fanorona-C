@@ -12,7 +12,7 @@
 
 NAME = fanorona
 
-SRC = ./src/map.c ./src/structure.c
+SRC = ./src/map.c ./src/structure.c ./src/structure1.c ./src/main.c
 
 OBJ = $(SRC:.c=.o)
 
