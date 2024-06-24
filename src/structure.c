@@ -12,6 +12,15 @@
 
 #include "structure.h"
 
+t_mouse	new_mouse(void)
+{
+	t_mouse	mouse;
+
+	mouse.state = 0;
+	mouse.x = 0;
+	mouse.y = 0;
+	return (mouse);
+}
 
 t_window	*new_window(int w, int h, char *title)
 {
@@ -45,6 +54,7 @@ t_data	*new_data(int w, int h, char *title)
 	data->win = new_window(w, h, title);
 	data->map = new_map(3, 3);
 	data->img = new_image(data->win);
+	data->mouse = new_mouse();
 	return (data);
 }
 

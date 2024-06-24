@@ -13,7 +13,7 @@
 NAME = fanorona
 
 SRC = ./src/map.c ./src/structure.c ./src/structure1.c ./src/main.c \
-		./src/fillwindow.c
+		./src/fillwindow.c ./src/mouse.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -32,14 +32,16 @@ SRC4 = ./lib/minilibx-linux/
 CFLAGS = -Wall -Wextra -Werror
 
 .c.o:
-	$(CC) $(CFLAGS) -I $(SRC1) -I $(SRC2) -I $(SRC3) -I $(SRC4) -c $< -o $(<:.c=.o)
+	$(CC) $(CFLAGS) -I $(SRC1) -I $(SRC2) -I $(SRC3) -I $(SRC4) \
+	-c $< -o $(<:.c=.o)
 
 $(NAME): $(OBJ)
 	make -C $(SRC1)
 	make -C $(SRC2)
 	make -C $(SRC3)
 	make -C $(SRC4)
-	$(CC) -g -o $(NAME) $(OBJ) -L $(SRC1) -L $(SRC2) -L $(SRC3) -L $(SRC4) -lftprintf -lgnl -lft -lmlx -lXext -lX11
+	$(CC) -g -o $(NAME) $(OBJ) -L $(SRC1) -L $(SRC2) -L $(SRC3) \
+	-L $(SRC4) -lftprintf -lgnl -lft -lmlx -lXext -lX11 -lm
 
 all: $(NAME)
 

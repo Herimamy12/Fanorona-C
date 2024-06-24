@@ -14,13 +14,14 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdio.h>
+# include <math.h>
 # include <X11/keysym.h>
 # include "ft_printf.h"
 # include "get_next_line.h"
 # include "libft.h"
 # include "mlx.h"
-# define BLOC_WIDTH_3 500
-# define BLOC_HEIGHT_3 500
+# define BLOC_WIDTH_3 (500 / 3)
+# define BLOC_HEIGHT_3 (500 / 3)
 # define ROUGE '1'
 # define NOIR '2'
 # define VIDE '0'
@@ -61,6 +62,7 @@ typedef struct s_data
 	t_window	*win;
 	t_map		*map;
 	t_image		*img;
+	t_mouse		mouse;
 }	t_data;
 
 t_map	*new_map(int w, int h);
@@ -72,6 +74,7 @@ void	destroy_window(t_window *win);
 void	destroy_image(t_image *img);
 void	destroy_data(t_data *data);
 void	fill_window(t_data *data);
+int 	handle_mouse(int button, int x, int y, t_data *data);
 
 #endif
 
