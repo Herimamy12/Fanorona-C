@@ -55,6 +55,7 @@ t_data	*new_data(int w, int h, char *title)
 	data->map = new_map(3, 3);
 	data->img = new_image(data->win);
 	data->mouse = new_mouse();
+	data->state = init_state(data);
 	return (data);
 }
 

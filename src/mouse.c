@@ -20,13 +20,16 @@ void	map_mouse(int *x, int *y)
 
 int	check_path_valide(int xx, int yy, t_data *data)
 {
+	int r;
+
+	r = 0;
 	if (data->map->map[yy][xx] == VIDE)
 	{
 		if (data->mouse.x == 1 && data->mouse.y == 1)
 		{
 			if (abs (xx - data->mouse.x) <= 1 &&
 				abs (yy - data->mouse.y) <= 1)
-				return (1);
+				r = 1;
 		}
 		else if (data->mouse.x == 1 || data->mouse.y == 1)
 		{
@@ -34,14 +37,16 @@ int	check_path_valide(int xx, int yy, t_data *data)
 			{
 				if (abs (xx - data->mouse.x) <= 1 &&
 					abs (yy - data->mouse.y) <= 1)
-					return (1);
+					r = 1;
 			}
 		}
 		else if (abs (xx - data->mouse.x) <= 1 &&
 			abs (yy - data->mouse.y) <= 1)
-			return (1);
+			r = 1;
 	}
-	return (0);
+	if (r)
+		data->state[data->mouse.y][data->mouse.x] = 1;
+	return (r);
 }
 
 void	r_move(int xx, int yy, t_data *data)
@@ -78,7 +83,6 @@ int handle_mouse(int button, int x, int y, t_data *data)
 		}
 		else
 			ft_manage_movement (xx, yy, data);
-		ft_printf("x: %d\n y: %d\n", xx, yy);
 	}
 	(void)data;
 	return (1);

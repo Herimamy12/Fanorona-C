@@ -63,6 +63,7 @@ typedef struct s_data
 	t_map		*map;
 	t_image		*img;
 	t_mouse		mouse;
+	char		**state;
 }	t_data;
 
 t_map	*new_map(int w, int h);
@@ -75,7 +76,8 @@ void	destroy_image(t_image *img);
 void	destroy_data(t_data *data);
 void	fill_window(t_data *data);
 int 	handle_mouse(int button, int x, int y, t_data *data);
-
+char	**init_state(t_data *data);
+int check_state(char **s);
 #endif
 
 
