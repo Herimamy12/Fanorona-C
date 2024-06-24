@@ -19,8 +19,8 @@
 # include "get_next_line.h"
 # include "libft.h"
 # include "mlx.h"
-# define BLOC_WIDTH_3 100
-# define BLOC_HEIGHT_3 100
+# define BLOC_WIDTH_3 500
+# define BLOC_HEIGHT_3 500
 # define ROUGE '1'
 # define NOIR '2'
 # define VIDE '0'
@@ -38,7 +38,7 @@ typedef struct s_window
 	void	*win_ptr;
 	int		w;
 	int		h;
-}	t_window;
+ }	t_window;
 
 typedef struct s_image
 {
@@ -46,6 +46,7 @@ typedef struct s_image
 	void	*red;
 	void	*black;
 	void	*vide;
+	void	*fond;
 }	t_image;
 
 typedef struct s_mouse
@@ -53,7 +54,7 @@ typedef struct s_mouse
 	int state;
 	int x;
 	int y;
-}
+}	t_mouse;
 
 typedef struct s_data
 {
@@ -70,6 +71,8 @@ void	destroy_map(t_map *map);
 void	destroy_window(t_window *win);
 void	destroy_image(t_image *img);
 void	destroy_data(t_data *data);
+void	fill_window(t_data *data);
+
 #endif
 
 

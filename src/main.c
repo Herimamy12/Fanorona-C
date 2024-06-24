@@ -29,10 +29,11 @@ int main()
 {
 	t_data	*data;
 
-	data = new_data (600, 600, "fanorona");
-	mlx_put_image_to_window (data->win->mlx_ptr, data->win->win_ptr, data->img->red, 10, 10);
+	data = new_data (500, 500, "fanorona");
+	fill_window (data);
+	/*mlx_put_image_to_window (data->win->mlx_ptr, data->win->win_ptr, data->img->red, 10, 10);*/
 	mlx_key_hook(data->win->win_ptr, &handle_key, data);
-	mlx_mouse_hook(data->win->win_ptr, &handle_mouse, data);
+	/*mlx_mouse_hook(data->win->win_ptr, &handle_mouse, data);*/
 	mlx_hook(data->win->win_ptr, 17, 1L << 2, &quit, data);
 	mlx_loop (data->win->mlx_ptr);
 	return (0);
