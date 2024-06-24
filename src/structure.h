@@ -11,13 +11,14 @@
 /* ************************************************************************** */
 #ifndef	STRUCTURE_H
 # define STRUCTURE_H
-# include "mlx.h"
 # include <stdlib.h>
+# include <fcntl.h>
+# include <stdio.h>
+# include <X11/keysym.h>
 # include "ft_printf.h"
 # include "get_next_line.h"
 # include "libft.h"
-# include <fcntl.h>
-# include <stdio.h>
+# include "mlx.h"
 # define BLOC_WIDTH_3 100
 # define BLOC_HEIGHT_3 100
 # define ROUGE '1'
@@ -46,6 +47,13 @@ typedef struct s_image
 	void	*black;
 	void	*vide;
 }	t_image;
+
+typedef struct s_mouse
+{
+	int state;
+	int x;
+	int y;
+}
 
 typedef struct s_data
 {

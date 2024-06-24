@@ -55,7 +55,6 @@ fclean: clean
 	make -C $(SRC2) fclean
 	make -C $(SRC3) fclean
 	$(RM) $(NAME)
-	$(RM) $(BNAME)
 
 re: fclean clean $(NAME)
 
