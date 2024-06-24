@@ -22,7 +22,22 @@ int	check_path_valide(int xx, int yy, t_data *data)
 {
 	if (data->map->map[yy][xx] == VIDE)
 	{
-		if (abs (xx - data->mouse.x) <= 1 &&
+		if (data->mouse.x == 1 && data->mouse.y == 1)
+		{
+			if (abs (xx - data->mouse.x) <= 1 &&
+				abs (yy - data->mouse.y) <= 1)
+				return (1);
+		}
+		else if (data->mouse.x == 1 || data->mouse.y == 1)
+		{
+			if (xx == data->mouse.x || yy == data->mouse.y)
+			{
+				if (abs (xx - data->mouse.x) <= 1 &&
+					abs (yy - data->mouse.y) <= 1)
+					return (1);
+			}
+		}
+		else if (abs (xx - data->mouse.x) <= 1 &&
 			abs (yy - data->mouse.y) <= 1)
 			return (1);
 	}
