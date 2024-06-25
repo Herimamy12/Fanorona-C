@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "structure.h"
+#include "ia_struct.h"
 
 int	handle_key(int keysym, t_data *data);
 
@@ -24,7 +25,7 @@ void	game_restart(t_data *data)
 {
 	fill_window (data);
 	mlx_key_hook(data->win->win_ptr, &handle_key, data);
-	mlx_mouse_hook(data->win->win_ptr, &handle_mouse, data);
+	mlx_mouse_hook(data->win->win_ptr, &handle_mouse_computer, data);
 	mlx_hook(data->win->win_ptr, 17, 1L << 2, &quit, data);
 	mlx_loop (data->win->mlx_ptr);
 }
