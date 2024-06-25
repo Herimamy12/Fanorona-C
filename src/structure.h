@@ -20,6 +20,7 @@
 # include "get_next_line.h"
 # include "libft.h"
 # include "mlx.h"
+
 # define BLOC_WIDTH_3 (500 / 3)
 # define BLOC_HEIGHT_3 (500 / 3)
 # define ROUGE '1'
@@ -84,23 +85,28 @@ typedef struct s_data
 	char		**state;
 }	t_data;
 
-t_map	*new_map(int w, int h);
+t_map		*new_map(int w, int h);
 t_window	*new_window(int w, int h, char *title);
-t_image	*new_image(t_window *win);
-t_data	*new_data(int w, int h, char *title);
-void	destroy_map(t_map *map);
-void	destroy_window(t_window *win);
-void	destroy_image(t_image *img);
-void	destroy_data(t_data *data);
-void	fill_window(t_data *data);
-int 	handle_mouse(int button, int x, int y, t_data *data);
-char	**init_state(t_data *data);
-int check_state1(char **s);
-int check_state2(char **s);
-int	verif_win1(t_data *data);
-int	verif_win2(t_data *data);
-void	ft_print_map(char **map);
-void	first_window(t_data *data);
-void	fill_last_window(t_data *data);
+t_image		*new_image(t_window *win);
+t_data		*new_data(int w, int h, char *title);
+void		destroy_map(t_map *map);
+void		destroy_window(t_window *win);
+void		destroy_image(t_image *img);
+void		destroy_data(t_data *data);
+void		fill_window(t_data *data);
+int 		handle_mouse(int button, int x, int y, t_data *data);
+char		**init_state(t_data *data);
+int 		check_state1(char **s);
+int 		check_state2(char **s);
+int			verif_win1(t_data *data);
+int			verif_win2(t_data *data);
+void		ft_print_map(char **map);
+void		first_window(t_data *data);
+void		fill_last_window(t_data *data);
+int 		handle_mouse(int button, int x, int y, t_data *data);
+int			quit(t_data *data);
+int			handle_key(int keysym, t_data *data);
+int 		handle_mouse_computer(int button, int x, int y, t_data *data);
+void		game_restart(t_data *data, int (*fun)(int, int, int, t_data *));
 
 #endif

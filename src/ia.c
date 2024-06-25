@@ -182,17 +182,9 @@ void	think(t_map *map, t_data *data)
 	int	z;
 	int	a;
 	
-	print_map(map->map);
-	printf("\n");
 	init_coup(map, coup);
 	c = -1;
 	z = 0;
-	for (int i = 0; i < 3; i++)
-		{
-			for (int j = 0; j < 4; j++)
-				printf("%d ", coup[i].coup_d[j]);
-			printf("\n");
-		}
 	while (z < 100 && c == -1)
 	{	
 		c = coup_valide(coup, &a);
@@ -207,6 +199,7 @@ void	think(t_map *map, t_data *data)
 	}
 	i = coup[c].x;
 	j = coup[c].y;
+	data->state[j][i] = 1;
 	if (a == 0)
 		move_d(&x, &y, coup[c]);
 	else if (a == 1)

@@ -21,11 +21,11 @@ int	quit(t_data *data)
 	exit(EXIT_SUCCESS);
 }
 
-void	game_restart(t_data *data)
+void	game_restart(t_data *data, int (*fun)(int, int, int, t_data *))
 {
 	fill_window (data);
 	mlx_key_hook(data->win->win_ptr, &handle_key, data);
-	mlx_mouse_hook(data->win->win_ptr, &handle_mouse_computer, data);
+	mlx_mouse_hook(data->win->win_ptr, fun, data);
 	mlx_hook(data->win->win_ptr, 17, 1L << 2, &quit, data);
 	mlx_loop (data->win->mlx_ptr);
 }
@@ -36,9 +36,9 @@ int	handle_key(int keysym, t_data *data)
 	{
 		destroy_data (data);
 		data = new_data (500, 500, "fanorona");
-		game_restart (data);	
+		game_restart (data, &handle_mouse);	
 	}
-	if (keysym == 32/* && (data->victory.win1 || data->victory.win2)*/)
+	if (keysym == 32)
 	{
 		destroy_data (data);
 		data = new_data (500, 500, "fanorona");
@@ -55,6 +55,5 @@ int main()
 
 	data = new_data (500, 500, "fanorona");
 	first_window(data);
-	// game_restart (data);
 	return (0);
 }
