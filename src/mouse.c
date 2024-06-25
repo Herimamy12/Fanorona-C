@@ -12,6 +12,8 @@
 
 #include "structure.h"
 
+void	ft_put_path_valide (int xx, int yy, t_data *data);
+
 void	map_mouse(int *x, int *y)
 {
 	*x = (int)*x / BLOC_WIDTH_3;
@@ -111,11 +113,23 @@ int handle_mouse(int button, int x, int y, t_data *data)
 				(data->player.state == 1 &&
 				data->map->map[data->mouse.y][data->mouse.x] == NOIR))
 			{
+				fill_window (data);
+				if (data->player.state == 1 &&
+				data->map->map[data->mouse.y][data->mouse.x] == NOIR)
+					mlx_put_image_to_window (data->win->mlx_ptr,
+						data->win->win_ptr, data->img->black01,
+						(xx * 250) - (xx * 25), (yy * 250) - (yy * 25));
+				else
+					mlx_put_image_to_window (data->win->mlx_ptr,
+						data->win->win_ptr, data->img->red01,
+						(xx * 250) - (xx * 25), (yy * 250) - (yy * 25));
+				ft_put_path_valide (xx, yy, data);
 				data->mouse.state = 1;
 			}
 		}
 		else
 		{
+			fill_window (data);
 			if (data->player.state == 0 &&
 				data->map->map[data->mouse.y][data->mouse.x] == ROUGE)
 				ft_manage_movement (xx, yy, data);
@@ -126,10 +140,15 @@ int handle_mouse(int button, int x, int y, t_data *data)
 				data->mouse.state = 0;
 		}
 	}
-	if (check_state(data->state) && verif_win(data))
+	if (check_state1(data->state) && verif_win1(data))
 	{
+		data->victory.win1 = 1;
 		fill_last_window (data);
-		ft_printf("Game finished\n");
+	}
+	else if (check_state2(data->state) && verif_win2(data))
+	{
+		data->victory.win2 = 1;
+		fill_last_window (data);
 	}
 	return (1);
 }

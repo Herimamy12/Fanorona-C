@@ -109,17 +109,16 @@ int	verif_player(t_map *map, char c)
 		return (1);
 	return (0);
 }
-int	verif_win(t_data *data)
+int	verif_win1(t_data *data)
 {
 	if (verif_player(data->map, '1') == 1)
-	{
-		ft_printf("Player 1 won this game.");
 		return (1);
-	}
+	return (0);
+}
+
+int	verif_win2(t_data *data)
+{
 	if (verif_player(data->map, '2') == 1)
-	{
-		ft_printf("Player 2 won this game.");
 		return (1);
-	}
 	return (0);
 }

@@ -29,12 +29,19 @@ char	**init_state(t_data *data)
 	return (s);
 }
 
-int check_state(char **s)
+int check_state1(char **s)
 {
 	int c1;
-	int c2;
 
 	c1 = s[0][0] && s[0][1] && s[0][2];
+	return (c1);
+}
+
+
+int check_state2(char **s)
+{
+	int c2;
+
 	c2 = s[2][0] && s[2][1] && s[2][2];
-	return (c1 || c2);
+	return (c2);
 }

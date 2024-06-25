@@ -26,6 +26,12 @@
 # define NOIR '2'
 # define VIDE '0'
 
+typedef struct s_victory
+{
+	int win1;
+	int win2;
+}	t_victory;
+
 typedef struct s_map
 {
 	char	**map;
@@ -45,7 +51,9 @@ typedef struct s_image
 {
 	t_window	*win;
 	void	*red;
+	void	*red01;
 	void	*black;
+	void	*black01;
 	void	*vide;
 	void	*fond;
 	void	*win1;
@@ -71,6 +79,7 @@ typedef struct s_data
 	t_image		*img;
 	t_mouse		mouse;
 	t_player	player;
+	t_victory	victory;
 	char		**state;
 }	t_data;
 
@@ -85,8 +94,10 @@ void	destroy_data(t_data *data);
 void	fill_window(t_data *data);
 int 	handle_mouse(int button, int x, int y, t_data *data);
 char	**init_state(t_data *data);
-int check_state(char **s);
-int	verif_win(t_data *data);
+int check_state1(char **s);
+int check_state2(char **s);
+int	verif_win1(t_data *data);
+int	verif_win2(t_data *data);
 void	ft_print_map(char **map);
 void	fill_last_window(t_data *data);
 

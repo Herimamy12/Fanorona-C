@@ -22,8 +22,10 @@ t_image	*new_image(t_window *win)
 	if (!img)
 		return (NULL);
 	img->win = win;
-	img->red = mlx_xpm_file_to_image(win->mlx_ptr, "./img/white.xpm", &x, &y);
-	img->black = mlx_xpm_file_to_image(win->mlx_ptr, "./img/black.xpm", &x, &y);
+	img->red = mlx_xpm_file_to_image(win->mlx_ptr, "./img/red.xpm", &x, &y);
+	img->red01 = mlx_xpm_file_to_image(win->mlx_ptr, "./img/red_01.xpm", &x, &y);
+	img->black = mlx_xpm_file_to_image(win->mlx_ptr, "./img/blue.xpm", &x, &y);
+	img->black01 = mlx_xpm_file_to_image(win->mlx_ptr, "./img/blue_01.xpm", &x, &y);
 	img->vide = mlx_xpm_file_to_image(win->mlx_ptr, "./img/vide.xpm", &x, &y);
 	img->fond = mlx_xpm_file_to_image(win->mlx_ptr, "./img/fond.xpm", &x, &y);
 	img->win1 = mlx_xpm_file_to_image(win->mlx_ptr, "./img/win1.xpm", &x, &y);

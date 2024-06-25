@@ -16,6 +16,7 @@ void	fill_window(t_data *data)
 {
 	int	i;
 	int	j;
+	int color = 255;
 
 	mlx_put_image_to_window (data->win->mlx_ptr,
 		data->win->win_ptr, data->img->fond, 0, 0);
@@ -41,4 +42,6 @@ void	fill_window(t_data *data)
 		}
 		i++;
 	}
+	mlx_string_put (data->win->mlx_ptr, data->win->win_ptr,
+		288, 494, color, "press R to reset the game");
 }

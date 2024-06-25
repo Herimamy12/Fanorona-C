@@ -12,6 +12,15 @@
 
 #include "structure.h"
 
+t_victory	new_victory(void)
+{
+	t_victory	victory;
+
+	victory.win1 = 0;
+	victory.win2 = 0;
+	return (victory);
+}
+
 t_player	new_player(void)
 {
 	t_player	player;
@@ -64,6 +73,7 @@ t_data	*new_data(int w, int h, char *title)
 	data->img = new_image(data->win);
 	data->mouse = new_mouse();
 	data->player = new_player();
+	data->victory = new_victory();
 	data->state = init_state(data);
 	return (data);
 }
