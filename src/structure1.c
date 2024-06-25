@@ -26,6 +26,8 @@ t_image	*new_image(t_window *win)
 	img->black = mlx_xpm_file_to_image(win->mlx_ptr, "./img/black.xpm", &x, &y);
 	img->vide = mlx_xpm_file_to_image(win->mlx_ptr, "./img/vide.xpm", &x, &y);
 	img->fond = mlx_xpm_file_to_image(win->mlx_ptr, "./img/fond.xpm", &x, &y);
+	img->win1 = mlx_xpm_file_to_image(win->mlx_ptr, "./img/win1.xpm", &x, &y);
+	img->win2 = mlx_xpm_file_to_image(win->mlx_ptr, "./img/win2.xpm", &x, &y);
 	return (img);
 }
 
@@ -35,6 +37,8 @@ void	destroy_image(t_image *img)
 	mlx_destroy_image(img->win->mlx_ptr, img->black);
 	mlx_destroy_image(img->win->mlx_ptr, img->vide);
 	mlx_destroy_image(img->win->mlx_ptr, img->fond);
+	mlx_destroy_image(img->win->mlx_ptr, img->win1);
+	mlx_destroy_image(img->win->mlx_ptr, img->win2);
 	free(img);
 }
 

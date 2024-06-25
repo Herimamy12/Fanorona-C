@@ -12,6 +12,14 @@
 
 #include "structure.h"
 
+t_player	new_player(void)
+{
+	t_player	player;
+
+	player.state = 0;
+	return (player);
+}
+
 t_mouse	new_mouse(void)
 {
 	t_mouse	mouse;
@@ -55,6 +63,7 @@ t_data	*new_data(int w, int h, char *title)
 	data->map = new_map(3, 3);
 	data->img = new_image(data->win);
 	data->mouse = new_mouse();
+	data->player = new_player();
 	data->state = init_state(data);
 	return (data);
 }

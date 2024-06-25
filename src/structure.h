@@ -48,6 +48,8 @@ typedef struct s_image
 	void	*black;
 	void	*vide;
 	void	*fond;
+	void	*win1;
+	void	*win2;
 }	t_image;
 
 typedef struct s_mouse
@@ -60,8 +62,6 @@ typedef struct s_mouse
 typedef struct s_player
 {
 	int state;
-	int	x;
-	int	y;
 }	t_player;
 
 typedef struct s_data
@@ -78,7 +78,6 @@ t_map	*new_map(int w, int h);
 t_window	*new_window(int w, int h, char *title);
 t_image	*new_image(t_window *win);
 t_data	*new_data(int w, int h, char *title);
-t_player	new_player(void);
 void	destroy_map(t_map *map);
 void	destroy_window(t_window *win);
 void	destroy_image(t_image *img);
