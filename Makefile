@@ -14,7 +14,7 @@ NAME = fanorona
 
 SRC = ./src/map.c ./src/structure.c ./src/structure1.c ./src/main.c \
 		./src/fillwindow.c ./src/mouse.c ./src/check.c ./src/verif_win.c \
-		./src/fill_last_window.c ./src/put_path.c
+		./src/fill_last_window.c ./src/put_path.c ./src/first_window.c
 OBJ = $(SRC:.c=.o)
 
 RM = rm -f

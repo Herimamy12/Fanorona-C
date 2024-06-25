@@ -44,4 +44,6 @@ void	fill_window(t_data *data)
 	}
 	mlx_string_put (data->win->mlx_ptr, data->win->win_ptr,
 		288, 494, color, "press R to reset the game");
+	mlx_string_put (data->win->mlx_ptr, data->win->win_ptr,
+		56, 494, color, "press space to go to menu");
 }

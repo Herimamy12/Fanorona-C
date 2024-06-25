@@ -56,6 +56,7 @@ typedef struct s_image
 	void	*black01;
 	void	*vide;
 	void	*fond;
+	void	*win0;
 	void	*win1;
 	void	*win2;
 }	t_image;
@@ -99,6 +100,7 @@ int check_state2(char **s);
 int	verif_win1(t_data *data);
 int	verif_win2(t_data *data);
 void	ft_print_map(char **map);
+void	first_window(t_data *data);
 void	fill_last_window(t_data *data);
 
 #endif

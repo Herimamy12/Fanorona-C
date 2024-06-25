@@ -1,56 +1,53 @@
 
 #include "structure.h"
 
-int	check_path_valide(int xx, int yy, t_data *data);
-
-void	ft_put_path_valide (int xx, int yy, t_data *data)
+int	check_action_valide(int xx, int yy, t_data *data)
 {
-	if (xx > 0)
+	int r;
+
+	r = 0;
+	if (data->map->map[yy][xx] == VIDE)
 	{
-		if (data->map->map[data->mouse.y][data->mouse.x - 1] == VIDE)
-			mlx_put_image_to_window (data->win->mlx_ptr,
-				data->win->win_ptr, data->img->vide,
-				((xx - 1) * 250) - ((xx - 1) * 25), (yy * 250) - (yy * 25));
-	}
-	if (xx < 2)
-	{
-		if (data->map->map[data->mouse.y][data->mouse.x + 1] == VIDE)
-			mlx_put_image_to_window (data->win->mlx_ptr,
-				data->win->win_ptr, data->img->vide,
-				((xx + 1) * 250) - ((xx + 1) * 25), (yy * 250) - (yy * 25));
-	}
-	if (yy > 0)
-	{
-		if (data->map->map[data->mouse.y - 1][data->mouse.x] == VIDE)
-			mlx_put_image_to_window (data->win->mlx_ptr,
-				data->win->win_ptr, data->img->vide,
-				(xx * 250) - (xx * 25), ((yy - 1) * 250) - ((yy - 1) * 25));
-	}
-	if (yy < 2)
-	{
-		if (data->map->map[data->mouse.y + 1][data->mouse.x] == VIDE)
-			mlx_put_image_to_window (data->win->mlx_ptr,
-				data->win->win_ptr, data->img->vide,
-				(xx * 250) - (xx * 25), ((yy + 1) * 250) - ((yy + 1) * 25));
-	}
-	if (xx > 0 && yy > 0)
-	{
-		if (check_path_valide (xx - 1, yy - 1, data))
+		if (data->mouse.x == 1 && data->mouse.y == 1)
 		{
-			if (data->map->map[data->mouse.y - 1][data->mouse.x - 1] == VIDE)
-				mlx_put_image_to_window (data->win->mlx_ptr,
-					data->win->win_ptr, data->img->vide,
-					((xx - 1) * 250) - ((xx - 1) * 25), ((yy - 1) * 250) - ((yy - 1) * 25));
+			if (abs (xx - data->mouse.x) <= 1 &&
+				abs (yy - data->mouse.y) <= 1)
+				r = 1;
+		}
+		else if (data->mouse.x == 0 && (data->mouse.y == 0 || data->mouse.y == 2))
+		{
+			if (abs (xx - data->mouse.x) <= 1 &&
+				abs (yy - data->mouse.y) <= 1)
+				r = 1;
+		}
+		else if (data->mouse.y == 0 && (data->mouse.x == 0 || data->mouse.x == 2))
+		{
+			if (abs (xx - data->mouse.x) <= 1 &&
+				abs (yy - data->mouse.y) <= 1)
+				r = 1;
 		}
 	}
-	else if (xx < 3 && yy < 3)
-	{
-		if (check_path_valide (xx + 1, yy + 1, data))
-		{
-			if (data->map->map[data->mouse.y + 1][data->mouse.x + 1] == VIDE)
-				mlx_put_image_to_window (data->win->mlx_ptr,
-					data->win->win_ptr, data->img->vide,
-					((xx + 1) * 250) - ((xx + 1) * 25), ((yy + 1) * 250) - ((yy + 1) * 25));
-		}
-	}
+	return (r);
 }
+
+// void	ft_put_path_valide (int xx, int yy, t_data *data)
+// {
+// 	if (xx >= 0)
+// 	{
+// 		if (check_action_valide (xx, yy, data))
+// 			mlx_put_image_to_window (data->win->mlx_ptr,data->win->win_ptr,
+// 				data->img->vide, (xx * 250) - (xx * 25), (yy * 250) - (yy * 25));
+// 		else if (check_action_valide (xx + 1, yy, data))
+// 			mlx_put_image_to_window (data->win->mlx_ptr,data->win->win_ptr,
+// 				data->img->vide, ((xx + 1) * 250) - ((xx + 1) * 25), (yy * 250) - (yy * 25));
+// 	}
+// 	if (yy >= 0)
+// 	{
+// 		if (check_action_valide (xx, yy, data))
+// 			mlx_put_image_to_window (data->win->mlx_ptr,data->win->win_ptr,
+// 				data->img->vide, (xx * 250) - (xx * 25), (yy * 250) - (yy * 25));
+// 		else if (check_action_valide (xx, yy + 1, data))
+// 			mlx_put_image_to_window (data->win->mlx_ptr,data->win->win_ptr,
+// 				data->img->vide, (xx * 250) - (xx * 25), ((yy + 1) * 250) - ((yy + 1) * 25));
+// 	}
+// }

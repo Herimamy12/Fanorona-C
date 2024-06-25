@@ -123,7 +123,7 @@ int handle_mouse(int button, int x, int y, t_data *data)
 					mlx_put_image_to_window (data->win->mlx_ptr,
 						data->win->win_ptr, data->img->red01,
 						(xx * 250) - (xx * 25), (yy * 250) - (yy * 25));
-				ft_put_path_valide (xx, yy, data);
+//				ft_put_path_valide (xx, yy, data);
 				data->mouse.state = 1;
 			}
 		}
