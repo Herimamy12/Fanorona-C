@@ -103,9 +103,16 @@ int handle_mouse(int button, int x, int y, t_data *data)
 		map_mouse(&xx, &yy);
 		if (data->mouse.state == 0)
 		{
-			data->mouse.state = 1;
 			data->mouse.x = xx;
 			data->mouse.y = yy;
+			if ((data->player.state == 0 &&
+				data->map->map[data->mouse.y][data->mouse.x] == ROUGE)
+				||
+				(data->player.state == 1 &&
+				data->map->map[data->mouse.y][data->mouse.x] == NOIR))
+			{
+				data->mouse.state = 1;
+			}
 		}
 		else
 		{
@@ -120,6 +127,9 @@ int handle_mouse(int button, int x, int y, t_data *data)
 		}
 	}
 	if (check_state(data->state) && verif_win(data))
+	{
+		fill_last_window (data);
 		ft_printf("Game finished\n");
+	}
 	return (1);
 }

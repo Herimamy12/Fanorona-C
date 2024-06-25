@@ -99,16 +99,6 @@ int	verif_diagonal(t_map *map, char c)
 	return (0);
 }
 
-
-void	ft_print_map(char **map)
-{
-	int	j;
-
-	j = 0;
-	while (map[j] != NULL)
-		ft_printf("%s\n", map[j++]);
-}
-
 int	verif_player(t_map *map, char c)
 {
 	if (verif_horizontal(map->map, c) == 1)
@@ -120,8 +110,7 @@ int	verif_player(t_map *map, char c)
 	return (0);
 }
 int	verif_win(t_data *data)
-{	
-	ft_print_map(data->map->map);
+{
 	if (verif_player(data->map, '1') == 1)
 	{
 		ft_printf("Player 1 won this game.");

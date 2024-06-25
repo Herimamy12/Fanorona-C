@@ -89,5 +89,6 @@ char	**init_state(t_data *data);
 int check_state(char **s);
 int	verif_win(t_data *data);
 void	ft_print_map(char **map);
+void	fill_last_window(t_data *data);
 
 #endif
