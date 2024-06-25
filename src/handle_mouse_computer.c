@@ -64,6 +64,9 @@ int handle_mouse_computer(int button, int x, int y, t_data *data)
 			if (data->player.state == 0 &&
 				data->map->map[data->mouse.y][data->mouse.x] == ROUGE)
 			{
+				mlx_put_image_to_window (data->win->mlx_ptr,
+					data->win->win_ptr, data->img->red01,
+					(xx * 250) - (xx * 25), (yy * 250) - (yy * 25));
 				data->mouse.state = 1;
 			}
 		}
@@ -73,13 +76,11 @@ int handle_mouse_computer(int button, int x, int y, t_data *data)
 				data->map->map[data->mouse.y][data->mouse.x] == ROUGE)
 			{	
 				if (ft_manage_movement_2 (xx, yy, data) == 1)
-				{
 					think(data->map, data);
-					fill_window(data);
-				}
-				data->player.state = 0;
 			}
 			data->mouse.state = 0;
+			data->player.state = 0;
+			fill_window(data);
 		}
 	}
 	if (check_state1(data->state) && verif_win1(data))
