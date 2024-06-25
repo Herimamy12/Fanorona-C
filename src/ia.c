@@ -193,10 +193,7 @@ void	think(t_map *map, t_data *data)
 			continue ;
 	}
 	if (c == -1)
-	{
-		handle_key(114, data);
 		return ;
-	}
 	i = coup[c].x;
 	j = coup[c].y;
 	data->state[j][i] = 1;
